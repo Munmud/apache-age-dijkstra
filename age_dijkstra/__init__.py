@@ -1,4 +1,8 @@
 import psycopg2
+from . import VERSION
+
+def version():
+    return VERSION.VERSION
 
 class Age_Dijkstra:
 
