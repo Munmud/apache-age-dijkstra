@@ -33,18 +33,18 @@ pip install apache-age-dijkstra
 
 ### Build from Source
 ```cmd
-git clone https://github.com/rhizome-ai/apache-age-python
+git clone https://github.com/Munmud/apache-age-dijkstra
 cd apache-age-python
 python setup.py install
 ```
 
 ### import
-```
+```py
 from age_dijkstra import Age_Dijkstra
 ```
 
 ### Making connection to postgresql (when using [docker reepository](https://github.com/Munmud/apache_age))
-```cmd
+```py
 con = Age_Dijkstra(host="localhost", port="5430", dbname="postgresDB", user="postgresUser", password="postgresPW",printMessage = True)
 ```
 
