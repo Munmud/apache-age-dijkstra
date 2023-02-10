@@ -26,3 +26,5 @@ class Age_Dijkstra:
         if self.connection is not None:
             self.connection.close()
             self.connection = None
+
+__name__ = "apache-age-dijkstra"
