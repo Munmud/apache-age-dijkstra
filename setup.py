@@ -14,7 +14,7 @@ setup(
     author_email     = 'moontasir042@gmail.com',
     url              = 'https://github.com/Munmud/apache-age-dijkstra',
     license          = 'Apache2.0',
-    install_requires = [ 'apache-age-python'],
+    install_requires = [ 'apache-age-python==0.0.4', "antlr4-python3-runtime==4.9.3"],
     packages         = ['age_dijkstra',],
     keywords         = ['Graph Database', 'Apache AGE', 'PostgreSQL','Shotrtest path', 'Dijkstra'],
     python_requires  = '>=3.9',

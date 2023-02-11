@@ -35,7 +35,7 @@ cd apache-age-python
 python setup.py install
 ```
 
-### import
+### Import
 ```py
 from age_dijkstra import Age_Dijkstra
 ```
