@@ -20,7 +20,7 @@ Apache AGE is:
 sudo apt-get update
 sudo apt-get install python3-dev libpq-dev
 pip install --no-binary :all: psycopg2
-pip install antlr4-python3-runtime==4.11.1
+pip install antlr4-python3-runtime==4.9.3
 ```
 
 ### Install via PIP
