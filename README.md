@@ -12,6 +12,8 @@ Apache AGE is:
 * Shortest Path implemented using dijkstra algorithm
 * Used Apache AGE graph database
 
+## Installation
+
 ### Requirements
 * Python 3.9 or higher
 * This module runs on [psycopg2](https://www.psycopg.org/) and [antlr4-python3](https://pypi.org/project/antlr4-python3-runtime/)
@@ -20,12 +22,12 @@ Apache AGE is:
 sudo apt-get update
 sudo apt-get install python3-dev libpq-dev
 pip install --no-binary :all: psycopg2
-pip install antlr4-python3-runtime==4.9.3
 ```
 
 ### Install via PIP
 ```cmd
 pip install apache-age-dijkstra
+pip install antlr4-python3-runtime==4.9.3
 ```
 
 ### Build from Source
@@ -34,6 +36,11 @@ git clone https://github.com/Munmud/apache-age-dijkstra
 cd apache-age-python
 python setup.py install
 ```
+
+### View Samples
+- [Shortest Distance between cities](https://github.com/Munmud/apache-age-dijkstra/blob/master/samples/sample1.py)
+
+## Instruction
 
 ### Import
 ```py
@@ -53,6 +60,76 @@ con.connect(
 )
 ```
 
+### Get all edges
+```py
+edges = con.get_all_edge()
+```
+- structure : 
+`
+{
+    v1 : start_vertex, 
+    v2 : end_vertex,
+    e : edge_object
+}
+`
+
+### Get all vertices
+```py
+nodes = []
+for x in con.get_all_vertices():
+    nodes.append(x['property_name'])
+```
+
+### Create adjacent matrices using edges
+```py
+init_graph = {}
+for node in nodes:
+    init_graph[node] = {}
+for edge in edges :
+    v1 = edge['v1']['vertices_property_name']
+    v2 = edge['v2']['vertices_property_name']
+    dist = int(edge['e']['edge_property_name'])
+    init_graph
+    init_graph[v1][v2] = dist
+```
+
+### Initialized Graph
+```py
+from age_dijkstra import  Graph
+graph = Graph(nodes, init_graph)
+```
+
+### Use dijkstra Algorithm
+```py
+previous_nodes, shortest_path = Graph.dijkstra_algorithm(graph=graph, start_node="vertices_property_name")
+```
+
+### Print shortest Path
+```py
+Graph.print_shortest_path(previous_nodes, shortest_path, start_node="vertices_property_name", target_node="vertices_property_name")
+```
+
+### Create Vertices
+```py
+con.set_vertices(
+    graph_name = "graph_name", 
+    label="label_name", 
+    property={"key1" : "val1",}
+    )
+```
+
+### Create Edge
+```py
+con.set_edge( 
+    graph_name = "graph_name", 
+    label1="label_name1", 
+    prop1={"key1" : "val1",}, 
+    label2="label_name2", 
+    prop2={"key1" : "val1",}, 
+    edge_label = "Relation_name", 
+    edge_prop = {"relation_property_name":"relation_property_value"}
+)
+```
 
 ### For more information about [Apache AGE](https://age.apache.org/)
 * Apache Incubator Age: https://age.apache.org/
