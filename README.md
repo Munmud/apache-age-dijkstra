@@ -25,7 +25,7 @@ pip install antlr4-python3-runtime==4.11.1
 
 ### Install via PIP
 ```cmd
-pip install apache-age-dijkstra 
+pip install apache-age-dijkstra
 ```
 
 ### Build from Source
@@ -40,9 +40,10 @@ python setup.py install
 from age_dijkstra import Age_Dijkstra
 ```
 
-### Making connection to postgresql (when using [docker reepository](https://github.com/Munmud/apache_age))
+### Making connection to postgresql (when using [this docker reepository](https://github.com/Munmud/apache_age))
 ```py
-con = Age_Dijkstra(
+con = Age_Dijkstra()
+con.connect(
     host="localhost",       # default is "172.17.0.2" 
     port="5430",            # default is "5432"
     dbname="postgresDB",    # default is "postgres"
