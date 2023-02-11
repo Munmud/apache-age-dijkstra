@@ -1,8 +1,6 @@
-# Shortest Path (Dijkstra) : Apache AGE Python Driver
+# Implement Shortest Path (Dijkstra) with Apache AGE
 
 [Apache AGE](https://age.apache.org/) is a PostgreSQL extension that provides graph database functionality. The goal of the Apache AGE project is to create single storage that can handle both relational and graph model data so that users can use standard ANSI SQL along with openCypher, the Graph query language. This repository hosts the development of the Python driver for this Apache extension (currently in Incubator status). Thanks for checking it out.
-
-A graph consists of a set of vertices (also called nodes) and edges, where each individual vertex and edge possesses a map of properties. A vertex is the basic object of a graph, that can exist independently of everything else in the graph. An edge creates a directed connection between two vertices. A graph database is simply composed of vertices and edges. This type of database is useful when the meaning is in the relationships between the data. Relational databases can easily handle direct relationships, but indirect relationships are more difficult to deal with in relational databases. A graph database stores relationship information as a first-class entity. Apache AGE gives you the best of both worlds, simultaneously.
 
 Apache AGE is:
 
@@ -11,9 +9,8 @@ Apache AGE is:
 - **Intelligent** -- AGE allows you to perform graph queries that are the basis for many next level web services such as fraud & intrustion detection, master data management, product recommendations, identity and relationship management, experience personalization, knowledge management and more.
 
 ### Features
-* Cypher query support for Psycopg2 PostreSQL driver (enables cypher queries directly)
-* Deserialize AGE result (AGType) to Vertex, Edge, Path
-* Shortest Path dijkstra algorithm implemented
+* Shortest Path implemented using dijkstra algorithm
+* Used Apache AGE graph database
 
 ### Requirements
 * Python 3.9 or higher
@@ -45,7 +42,14 @@ from age_dijkstra import Age_Dijkstra
 
 ### Making connection to postgresql (when using [docker reepository](https://github.com/Munmud/apache_age))
 ```py
-con = Age_Dijkstra(host="localhost", port="5430", dbname="postgresDB", user="postgresUser", password="postgresPW",printMessage = True)
+con = Age_Dijkstra(
+    host="localhost",       # default is "172.17.0.2" 
+    port="5430",            # default is "5432"
+    dbname="postgresDB",    # default is "postgres"
+    user="postgresUser",    # default is "postgres"
+    password="postgresPW",  # default is "agens"
+    printMessage = True     # default is False
+)
 ```
 
 
@@ -53,6 +57,7 @@ con = Age_Dijkstra(host="localhost", port="5430", dbname="postgresDB", user="pos
 * Apache Incubator Age: https://age.apache.org/
 * Github: https://github.com/apache/incubator-age
 * Documentation: https://age.incubator.apache.org/docs/
+* apache-age-dijkstra GitHub: https://github.com/Munmud/apache-age-dijkstra
 * apache-age-python GitHub: https://github.com/rhizome-ai/apache-age-python
 
 ### License
